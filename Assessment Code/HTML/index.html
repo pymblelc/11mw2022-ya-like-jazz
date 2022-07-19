@@ -14,48 +14,251 @@
 
   <body onload="webcamStart()">
     
-    <container class="indexPage" id="indexPage"> 
+    <container class="indexPage" id="indexPage" style="display: block;"> 
       <p id="para1"> Take a photo. Its on the house ;). </p>
       <div class="buttons">
           <button id="takePhoto"> Snap!</button>
           <button id="submit"> Enter. </button>
       </div>
-
       <video id="webcam"></video>
       <canvas id="canvas" class="capturedImage"> </canvas>
-
-      <div id="results"> 
-        <div class="container">
-          <div class="right" id="textBox1"></div>
-      </div>
-          <div class="container">
-              <div class="right" id="textBox2"></div>
-          </div>
-          <div class="container">
-              <div class="left" id="textBox3"></div>
-          </div>
-          <div class="container">
-              <div class="left" id="textBox5"></div>
-              <div class="right" id="textBox6"></div>
-          </div>
-      </div>
     </container>
 
-    <container class="tablePage" id="tablePage"> 
+
+    <container class="tablePage" id="tablePage" style="display: none;"> 
       <div>
         <h1 id="title2"> Your Table No. is: </h1>
         <h1 id="tableText"> </h1>
-        <button id="contBtn" onclick="document.location='Select.html'"> Continue </button>
+        <button id="contBtn"> Continue </button>
       </div>
     </container>
 
-    <container id="randomPage2"> 
+    <container id="selectPage" style="display: none;"> 
+      <h1 id="title2"> AVAILABLE MENUS </h1>
+      <div class="buttons">
+        <button id="drinksBtn"> Drinks Menu </button>
+        <button id="dinnnerBtn"> Dinner Menu </button>
+        <button id="dessertBtn"> Dessert Menu </button>
+      </div>
+      <button id="randomBtn"> Personalised Menu. </button>
+    </container>
+
+
+    <container id="randomPage" style="display: none;"> 
+      <h1 id="title2"> Personalised Menu. </h1>
+      <p style="font-style: italic;"> Enjoy a randomly selected menu selected for you and anyone else at your table!</p>
+      <button id="randomMenuBtn"> Continue </button>
+    </container>
+
+
+    <container id="randomPage2" style="display: none;"> 
       <div> 
           <h1> Drinks </h1>
-          <p id=""></p>
+          <p id="textBox1"></p>
+          <h1> Dinner </h1>
+          <p id="textBox2"></p>
+          <h2> Dessert </h2>
+          <p id="textBox3"> </p>
       </div>
-      
-      <h1 id="title2"> We Hope You Enjoy :). </h1>
+      <h1> We Hope You Enjoy :). </h1>
+    </container>
+
+    <container id="drinksMenu" style="display: none;"> 
+      <div class="menu">
+          <h1> DRINKS </h1>
+          <h2> Asian </h2>
+
+          <p> Shibuya Honey Toast | $7.50
+              - Brick toast
+              
+              Banh Gan | $9.80
+              - Vietnamese Coconut Creme Caramel
+              
+              Mochi | $7.80
+              - Slider of 6 flavours
+          </p>
+          
+          
+          <h2> European </h2>
+          
+          <p>Bombe Alaska | $12.00
+              - Ice Cream inside Meringue
+              
+              Trifle - Non Alcoholic | $7.00
+              - With Mini Eclairs
+              
+              Italian Tiramisu | $6.00
+              - With Ice-Cream and Strawberries
+          </p>
+          
+          
+          <h2> Eurasian</h2>
+          
+          <p> Mango Pudding | $7.60
+              - Your Choice of Topping
+              
+              Black sesame Ice-Cream Cones | $3.80
+              - With Matcha or Green Tea Ice-Cream
+          </p>          
+          
+
+          <h2> Classic </h2>
+          
+          <p> Ice Cream | $3.50
+              - Your Choice of Flavour
+              
+              Cheesecake of the Day | $TBD
+              
+              Lava Cake | $6.50
+              - With strawberries
+          </p>
+          <button class="returnBtn"> Return </button>
+      </div> 
   </container>
+
+  <container id="dinnerMenu" style="display: none;"> 
+    <div class="menu">
+        <h1> DINNER </h1>
+        <h2> Asian </h2>
+
+        <p> Shibuya Honey Toast | $7.50
+            - Brick toast
+            
+            Banh Gan | $9.80
+            - Vietnamese Coconut Creme Caramel
+            
+            Mochi | $7.80
+            - Slider of 6 flavours
+        </p>
+        
+        
+        <h2> European </h2>
+        
+        <p>Bombe Alaska | $12.00
+            - Ice Cream inside Meringue
+            
+            Trifle - Non Alcoholic | $7.00
+            - With Mini Eclairs
+            
+            Italian Tiramisu | $6.00
+            - With Ice-Cream and Strawberries
+        </p>
+        
+        
+        <h2> Eurasian</h2>
+        
+        <p> Mango Pudding | $7.60
+            - Your Choice of Topping
+            
+            Black sesame Ice-Cream Cones | $3.80
+            - With Matcha or Green Tea Ice-Cream
+        </p>          
+        
+
+        <h2> Classic </h2>
+        
+        <p> Ice Cream | $3.50
+            - Your Choice of Flavour
+            
+            Cheesecake of the Day | $TBD
+            
+            Lava Cake | $6.50
+            - With strawberries
+        </p>
+        <button class="returnBtn"> Return </button>
+    </div> 
+</container>
+
+<container id="dessertMenu" style="display: none;"> 
+  <div class="menu">
+      <h1> DESSERT </h1>
+      <h2> Asian </h2>
+
+      <p> Shibuya Honey Toast | $7.50
+          - Brick toast
+          
+          Banh Gan | $9.80
+          - Vietnamese Coconut Creme Caramel
+          
+          Mochi | $7.80
+          - Slider of 6 flavours
+      </p>
+      
+      
+      <h2> European </h2>
+      
+      <p>Bombe Alaska | $12.00
+          - Ice Cream inside Meringue
+          
+          Trifle - Non Alcoholic | $7.00
+          - With Mini Eclairs
+          
+          Italian Tiramisu | $6.00
+          - With Ice-Cream and Strawberries
+      </p>
+      
+      
+      <h2> Eurasian</h2>
+      
+      <p> Mango Pudding | $7.60
+          - Your Choice of Topping
+          
+          Black sesame Ice-Cream Cones | $3.80
+          - With Matcha or Green Tea Ice-Cream
+      </p>          
+      
+
+      <h2> Classic </h2>
+      
+      <p> Ice Cream | $3.50
+          - Your Choice of Flavour
+          
+          Cheesecake of the Day | $TBD
+          
+          Lava Cake | $6.50
+          - With strawberries
+      </p>
+      <button class="returnBtn"> Return </button>
+  </div> 
+</container>
+
+    <script>
+      document.getElementById("submit").addEventListener('click', function() {
+        document.getElementById('indexPage').style.display= "none"; 
+        document.getElementById('tablePage').style.display = "block";
+      });
+      document.getElementById("contBtn").addEventListener('click', function() {
+        document.getElementById('tablePage').style.display= "none";
+        document.getElementById('selectPage').style.display = "block";
+      });
+      document.getElementById("randomBtn").addEventListener('click', function() {
+        document.getElementById('selectPage').style.display= "none"; 
+        document.getElementById('randomPage').style.display = "block";
+      });
+      document.getElementById("randomMenuBtn").addEventListener('click', function() {
+        document.getElementById('randomPage').style.display= "none"; 
+        document.getElementById('randomPage2').style.display = "block";
+      });
+      document.getElementById('drinksBtn').addEventListener('click', function() {
+        document.getElementById('selectPage').style.display= "none"; 
+        document.getElementById('drinksMenu').style.display = "block";
+      });
+      document.getElementById('dinnerBtn').addEventListener('click', function() {
+        document.getElementById('selectPage').style.display= "none"; 
+        document.getElementById('dinnerMenu').style.display = "block";
+      });
+      document.getElementById('dessertBtn').addEventListener('click', function() {
+        document.getElementById('selectPage').style.display= "none"; 
+        document.getElementById('dessertMenu').style.display = "block";
+      });
+      document.getElementsByClassName('returnBtn').addEventListener('click', function() {       
+        document.getElementById('selectPage').style.display= "block"; 
+        document.getElementById('dessertMenu').style.display = "none";
+        document.getElementById('dinnerMenu').style.display = "none";
+        document.getElementById('drinksMenu').style.display = "none";
+      })
+    </script> 
+
+
   </body>
 </html>

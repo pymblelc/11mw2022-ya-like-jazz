@@ -48,8 +48,6 @@ takePhotoBtn.addEventListener("click", function () {
 
 //using object recognition to recognise how many people are in the group. using variable peopleNo to randomly select a table from the array based on the amount of people present in the group.
 submitBtn.addEventListener("click", function () {
-  indexPage.style.display = "none";
-  tablePage.style.display = "block"
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
@@ -80,13 +78,7 @@ submitBtn.addEventListener("click", function () {
           console.log("table no. is " + tableNumbers4[random]);
           txt.innerHTML += tableNumbers1[random];
         };
-        
-        menuBtn.addEventListener("click", function() {
-          indexPage.style.display = "none"
-          tablePage.style.display = "none"
-          randomPage2.style.display = "block"
-        });
-        
+
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let glasses = data[i].faceAttributes.glasses;
         let lipstick = data[i].faceAttributes.makeup.lipMakeup;
@@ -144,9 +136,9 @@ submitBtn.addEventListener("click", function () {
           dessertText(1);
         }
 
-        }
       }
-  )})
+    })
+  })
 });
 
 

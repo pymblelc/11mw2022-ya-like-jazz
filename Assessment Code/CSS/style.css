@@ -77,10 +77,6 @@ p {
     font-size: 2vw;
 }
 
-.tablePage {
-    display: none;
-}
-
 .container {
     display: grid;
     margin: 2vw;
@@ -104,6 +100,3 @@ p {
     font-size: 3vw;
 }
 
-#randomPage2 {
-    display: none;
-}
