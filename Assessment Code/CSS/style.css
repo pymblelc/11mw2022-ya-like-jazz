@@ -1,5 +1,13 @@
+@import "https://unpkg.com/open-props";
+
+* {
+    box-sizing: border-box;
+  }
+
 body {
-    display: flex;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
     font-family: "Libre Baskerville", serif;
     justify-content: center;
     flex-direction: column;
@@ -8,18 +16,7 @@ body {
     color: white;
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, #ef99da, #deaaff, #c0fdff);
-    background-size: 500%; 
-    animation: background-img-animation 20s alternate infinite;
-  }
-  
-  @keyframes background-img-animation {
-    0% {
-      background-position: left
-    }
-    100% {
-      background-position: right
-    }
+    background: var(--gradient-1);
 }
   
 #myPhoto {
@@ -39,8 +36,8 @@ button {
 }
 
 button:hover {
-    background-color: rgb(251, 160, 180);
-    color: rgb(243, 59, 102);
+    background-color: rgb(255, 243, 245);
+    color: palevioletred;
     transition: 0.5s;
 }
 
@@ -63,6 +60,11 @@ h2 {
     color: white;
 }
 
+#title2 {
+    font-size: 6vw;
+    color: white;
+}
+
 #clock {
     font-size: 6vw;
     margin-top: 50px;
@@ -75,6 +77,9 @@ p {
     font-size: 2vw;
 }
 
+.tablePage {
+    display: none;
+}
 
 .container {
     display: grid;
@@ -83,4 +88,13 @@ p {
     justify-content: center;
     justify-items: center;
 
+}
+
+#webcam {
+    width: 100%;
+
+}
+
+#tableText {
+    font-size: 6vw;
 }

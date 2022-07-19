@@ -5,6 +5,9 @@ let myCanvas = document.getElementById("canvas");
 let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
 let webcam = new Webcam(myWebcam, "user", myCanvas); 
+let txt = document.getElementById("tableText")
+let indexPage = document.getElementById("indexPage")
+let tablePage = document.getElementById("tablePage")
 
 //creating functions for starting and stopping the webcam
 function webcamStart() {
@@ -33,59 +36,118 @@ function webcamStop () {
 takePhotoBtn.addEventListener("click", function () {
   var picture = webcam.snap(); 
   webcam.stop();
+  myWebcam.style.display = "none";
 });
+
 
 
 //<--------------------------------------------------------------------------------------------------------------------> 
 
 
-//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
-//using object recognition to recognise how many people are in the group.
+//using object recognition to recognise how many people are in the group. using variable peopleNo to randomly select a table from the array based on the amount of people present in the group.
 submitBtn.addEventListener("click", function () {
+  indexPage.style.display = "none";
+  tablePage.style.display = "block"
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
+        
         let peopleNo = data.length;
-        console.log("haha " + peopleNo); 
+        console.log("Number of people present is:  " + peopleNo); 
         let tabletxt = document.getElementById("textBox1");
         const tableNumbers1 = ["4","5","10","13","15","17","21","30"];
-        const tableNumbers2 = [1,2,8,9,22,23,25,26,29];
-        const tableNumbers3 = [3,6,7,11,12,18];
-        const tableNumbers4 = [14,16,19,24,27,28];
-        if (peopleNo <=3) {
+        const tableNumbers2 = ["1","2","8","9","22","23","25","26","29"];
+        const tableNumbers3 = ["3","6","7","11","12","18"];
+        const tableNumbers4 = ["14","16","19","24","27","28"];
+        if (peopleNo < 3) { //if no. of people in photo <3 (1,2), than one of table numbers 4,5,10,13,15,17,21,30 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers1.length);
-          console.log(random, tableNumbers1[random]);
+          console.log("table no. is " + tableNumbers1[random]);
+          txt.innerHTML = tableNumbers1[random];
         };
-        if (peopleNo =>4) {
+        if (peopleNo > 2) { //if no of people in photo is >2 (3,4,5,6) than one of table numbers 1,2,8,9,22,23,25,26,29 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers2.length);
-          console.log(random, tableNumbers2[random]);
-        };
-        if (peopleNo =>7) {
+          console.log("table no. is " + tableNumbers2[random]);
+          txt.innerHTML +=  tableNumbers1[random];
+        }; 
+        if (peopleNo > 6) { //if no. of people in photo is >6 (7,8,9,10) than one of table numbers 3,6,7,11,12,18 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers3.length);
-          console.log(random, tableNumbers3[random]);
+          console.log("table no. is " + tableNumbers3[random]);
+          txt.innerHTML += tableNumbers1[random];
         };
-        if (peopleNo >10) {
+        if (peopleNo > 10) { //if no. of people in photo is >10 (11,12,13 etc.) than one of table numbers 14,16,19,24,27,28 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers4.length);
-          console.log(random, tableNumbers4[random]);
+          console.log("table no. is " + tableNumbers4[random]);
+          txt.innerHTML += tableNumbers1[random];
         };
-
-
       }
     })
   })
 });
 
-//using variable peopleNo to randomly select a table from the array based on the amount of people present in the group.
+//---------------------------------------------------------------------------------------------------------------------->
+
+//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
 
 
-//if no. of people in photo <=3, then table numbers 4,5,10,13,15,17,21,30 will show up as available. 
-//if no of people in photo is 4<=>6 then thable numbers 1,2,8,9,22,23,25,26,29 will show up as available.
-//if no. of people in photo is 7<=>10 then table numbers 3,6,7,11,12,18 will show up as available.
-//if no. of people in photo is >10 then table numbers 14,16,19,24,27,28 will show up as available.
+let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
+let glasses = data[i].faceAttributes.glasses;
+let lipstick = data[i].faceAttributes.makeup.lipMakeup;
 
+function drinksText (number) {
+  let drinksText = drinks[number].text; 
+  let drinksImg = drinks[number].image;
+  textBox1.innerHTML += drinksText;
+} 
+function dinnerText (number) {
+  let dinnerText = dinner[number].text; 
+  let dinnerImg = dinner[number].image;
+  textBox2.innerHTML += dinnerText;
+}
+function dessertText (number) {
+  let dessertText = dessert[number].text; 
+  let dessertImg = dessert[number].image;
+  textBox3.innerHTML += dessertText;
+}
 
-//where code gets the assigned menu items from.
+if (haircolor == "black") {
+  dinnerText(0);
+}
+if (haircolor == "blond") {
+  dinnerText(1);
+}
+if (haircolor == "brown") {
+  dinnerText(2);
+}
+if (haircolor == "red") {
+  dinnerText(3);
+}
+if (haircolor == "unknown") {
+  dinnerText(4);
+}
+if (haircolor == "other") {
+  dinnerText(4);
+}
+if (haircolor == "white") {
+  dinnerText(5);
+}
+if (haircolor == "gray") {
+  dinnerText(5);
+}
+if (glasses == "NoGlasses") {
+  drinksText(0);
+}
+if (glasses == "ReadingGlasses") {
+  drinksText(1);
+}
+if (lipstick == true) {
+  dessertText(0);
+}
+if (lipstick == false) {
+  dessertText(1);
+}
 
+//where code gets the assigned menu items from and stuff.
+//drinks items.
 drinks = [
   {
     glasses: "NoGlasses",
@@ -97,6 +159,7 @@ drinks = [
   },
 ];
 
+//dinner items.
 dinner = [
   {
     hair: "black",
@@ -124,6 +187,7 @@ dinner = [
   },
 ];
 
+//dessert items.
 dessert = [
   {
     lipstick: "true",

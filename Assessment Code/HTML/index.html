@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orizoru: Photo Op</title>
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js" defer></script>
-    <script src="/JS/ai.js" defer></script>
-    <script src="/JS/ai2.js" defer></script>
+    <script src="../JS/ai.js" defer></script>
+    <script src="../JS/ai2.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
   </head>
 
   <body onload="webcamStart()">
     
-    <container> 
-      <p> Take a photo. Its on the house ;). </p>
+    <container class="indexPage" id="indexPage"> 
+      <p id="para1"> Take a photo. Its on the house ;). </p>
       <div class="buttons">
           <button id="takePhoto"> Snap!</button>
           <button id="submit"> Enter. </button>
@@ -41,5 +41,12 @@
       </div>
     </container>
 
+    <container class="tablePage" id="tablePage"> 
+      <div>
+        <h1 id="title2"> Your Table No. is: </h1>
+        <h1 id="tableText"> </h1>
+        <button id="contBtn" onclick="document.location='Select.html'"> Continue </button>
+      </div>
+    </container>
   </body>
 </html>
