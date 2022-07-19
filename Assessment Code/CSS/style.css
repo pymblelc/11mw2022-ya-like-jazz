@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    font-family: "Libre Baskerville", serif;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #ef99da, #deaaff, #c0fdff);
+    background-size: 500%; 
+    animation: background-img-animation 20s alternate infinite;
+  }
+  
+  @keyframes background-img-animation {
+    0% {
+      background-position: left
+    }
+    100% {
+      background-position: right
+    }
+}
+  
+#myPhoto {
+    justify-content: center;
+}
+
+button {
+    margin: 2vw;
+    padding: 1vw;
+    width: 10%;
+    background-color: transparent;
+    border: solid;
+    min-width: fit-content;
+    font: 2vw "Libre Baskerville", serif;
+    color: white;
+
+}
+
+button:hover {
+    background-color: rgb(251, 160, 180);
+    color: rgb(243, 59, 102);
+    transition: 0.5s;
+}
+
+.analysation {
+    margin: 3vw;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+.capturedImage {
+    width: 640px;
+    height: 480px;
+}
+
+#title {
+    font-size: 6vw;
+    margin-top: 200px;
+    color: white;
+}
+
+#clock {
+    font-size: 6vw;
+    margin-top: 50px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+}
+
+p {
+    font-size: 2vw;
+}
+
+
+.container {
+    display: grid;
+    margin: 2vw;
+    width: 50%;
+    justify-content: center;
+    justify-items: center;
+
+}
