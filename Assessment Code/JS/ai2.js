@@ -39,83 +39,48 @@ takePhotoBtn.addEventListener("click", function () {
 //<--------------------------------------------------------------------------------------------------------------------> 
 
 
-//using object recognition to recognise how many people are in the group and select a table that can fit them all.
-
-
-
-
 //using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
+//using object recognition to recognise how many people are in the group.
 submitBtn.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
-        let peopleNo = data.length
-        console.log("haha " + peopleNo);
-        let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
-        let glasses = data[i].faceAttributes.glasses;
-        let lipstick = data[i].faceAttributes.makeup.lipMakeup;
+        let peopleNo = data.length;
+        console.log("haha " + peopleNo); 
+        let tabletxt = document.getElementById("textBox1");
+        const tableNumbers1 = ["4","5","10","13","15","17","21","30"];
+        const tableNumbers2 = [1,2,8,9,22,23,25,26,29];
+        const tableNumbers3 = [3,6,7,11,12,18];
+        const tableNumbers4 = [14,16,19,24,27,28];
+        if (peopleNo <=3) {
+          const random = Math.floor(Math.random() * tableNumbers1.length);
+          console.log(random, tableNumbers1[random]);
+        };
+        if (peopleNo =>4) {
+          const random = Math.floor(Math.random() * tableNumbers2.length);
+          console.log(random, tableNumbers2[random]);
+        };
+        if (peopleNo =>7) {
+          const random = Math.floor(Math.random() * tableNumbers3.length);
+          console.log(random, tableNumbers3[random]);
+        };
+        if (peopleNo >10) {
+          const random = Math.floor(Math.random() * tableNumbers4.length);
+          console.log(random, tableNumbers4[random]);
+        };
 
-        function drinksText (number) {
-          let drinksText = drinks[number].text; 
-          let drinksImg = drinks[number].image;
-          textBox1.innerHTML += drinksText;
-        } 
-        function dinnerText (number) {
-          let dinnerText = dinner[number].text; 
-          let dinnerImg = dinner[number].image;
-          textBox2.innerHTML += dinnerText;
-        }
-        function dessertText (number) {
-          let dessertText = dessert[number].text; 
-          let dessertImg = dessert[number].image;
-          textBox3.innerHTML += dessertText;
-        }
-
-        if (haircolor == "black") {
-          dinnerText(0);
-        }
-        if (haircolor == "blond") {
-          dinnerText(1);
-        }
-        if (haircolor == "brown") {
-          dinnerText(2);
-        }
-        if (haircolor == "red") {
-          dinnerText(3);
-        }
-        if (haircolor == "unknown") {
-          dinnerText(4);
-        }
-        if (haircolor == "other") {
-          dinnerText(4);
-        }
-        if (haircolor == "white") {
-          dinnerText(5);
-        }
-        if (haircolor == "gray") {
-          dinnerText(5);
-        }
-        if (glasses == "NoGlasses") {
-          drinksText(0);
-        }
-        if (glasses == "ReadingGlasses") {
-          drinksText(1);
-        }
-        if (lipstick == true) {
-          dessertText(0);
-        }
-        if (lipstick == false) {
-          dessertText(1);
-        }
 
       }
-    });
-  });
+    })
+  })
 });
 
-//if no. of people in photo <=2, then table numbers 4,5,10,13,15,17,21,30 will show up as available. 
+//using variable peopleNo to randomly select a table from the array based on the amount of people present in the group.
+
+
+//if no. of people in photo <=3, then table numbers 4,5,10,13,15,17,21,30 will show up as available. 
 //if no of people in photo is 4<=>6 then thable numbers 1,2,8,9,22,23,25,26,29 will show up as available.
-//if no. of people in photo is 6<=>10 then table numbers 3,6,7,11,12,18 will show up as available.
+//if no. of people in photo is 7<=>10 then table numbers 3,6,7,11,12,18 will show up as available.
 //if no. of people in photo is >10 then table numbers 14,16,19,24,27,28 will show up as available.
 
 
