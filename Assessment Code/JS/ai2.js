@@ -8,6 +8,9 @@ let webcam = new Webcam(myWebcam, "user", myCanvas);
 let txt = document.getElementById("tableText")
 let indexPage = document.getElementById("indexPage")
 let tablePage = document.getElementById("tablePage")
+let randomPage1 = document.getElementById("randomPage")
+let randomPage2 = document.getElementById("randomPage2")
+let menuBtn = document.getElementById("randomMenuBtn")
 
 //creating functions for starting and stopping the webcam
 function webcamStart() {
@@ -40,7 +43,6 @@ takePhotoBtn.addEventListener("click", function () {
 });
 
 
-
 //<--------------------------------------------------------------------------------------------------------------------> 
 
 
@@ -51,7 +53,6 @@ submitBtn.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
-        
         let peopleNo = data.length;
         console.log("Number of people present is:  " + peopleNo); 
         let tabletxt = document.getElementById("textBox1");
@@ -79,72 +80,81 @@ submitBtn.addEventListener("click", function () {
           console.log("table no. is " + tableNumbers4[random]);
           txt.innerHTML += tableNumbers1[random];
         };
+        
+        menuBtn.addEventListener("click", function() {
+          indexPage.style.display = "none"
+          tablePage.style.display = "none"
+          randomPage2.style.display = "block"
+        });
+        
+        let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
+        let glasses = data[i].faceAttributes.glasses;
+        let lipstick = data[i].faceAttributes.makeup.lipMakeup;
+
+        function drinksText (number) {
+          let drinksText = drinks[number].text; 
+          let drinksImg = drinks[number].image;
+          textBox1.innerHTML += drinksText;
+        } 
+        function dinnerText (number) {
+          let dinnerText = dinner[number].text; 
+          let dinnerImg = dinner[number].image;
+          textBox2.innerHTML += dinnerText;
+        }
+        function dessertText (number) {
+          let dessertText = dessert[number].text; 
+          let dessertImg = dessert[number].image;
+          textBox3.innerHTML += dessertText;
+        }
+
+        if (haircolor == "black") {
+          dinnerText(0);
+        }
+        if (haircolor == "blond") {
+          dinnerText(1);
+        }
+        if (haircolor == "brown") {
+          dinnerText(2);
+        }
+        if (haircolor == "red") {
+          dinnerText(3);
+        }
+        if (haircolor == "unknown") {
+          dinnerText(4);
+        }
+        if (haircolor == "other") {
+          dinnerText(4);
+        }
+        if (haircolor == "white") {
+          dinnerText(5);
+        }
+        if (haircolor == "gray") {
+          dinnerText(5);
+        }
+        if (glasses == "NoGlasses") {
+          drinksText(0);
+        }
+        if (glasses == "ReadingGlasses") {
+          drinksText(1);
+        }
+        if (lipstick == true) {
+          dessertText(0);
+        }
+        if (lipstick == false) {
+          dessertText(1);
+        }
+
+        }
       }
-    })
-  })
+  )})
 });
+
 
 //---------------------------------------------------------------------------------------------------------------------->
 
+
 //using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
 
-
-let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
-let glasses = data[i].faceAttributes.glasses;
-let lipstick = data[i].faceAttributes.makeup.lipMakeup;
-
-function drinksText (number) {
-  let drinksText = drinks[number].text; 
-  let drinksImg = drinks[number].image;
-  textBox1.innerHTML += drinksText;
-} 
-function dinnerText (number) {
-  let dinnerText = dinner[number].text; 
-  let dinnerImg = dinner[number].image;
-  textBox2.innerHTML += dinnerText;
-}
-function dessertText (number) {
-  let dessertText = dessert[number].text; 
-  let dessertImg = dessert[number].image;
-  textBox3.innerHTML += dessertText;
-}
-
-if (haircolor == "black") {
-  dinnerText(0);
-}
-if (haircolor == "blond") {
-  dinnerText(1);
-}
-if (haircolor == "brown") {
-  dinnerText(2);
-}
-if (haircolor == "red") {
-  dinnerText(3);
-}
-if (haircolor == "unknown") {
-  dinnerText(4);
-}
-if (haircolor == "other") {
-  dinnerText(4);
-}
-if (haircolor == "white") {
-  dinnerText(5);
-}
-if (haircolor == "gray") {
-  dinnerText(5);
-}
-if (glasses == "NoGlasses") {
-  drinksText(0);
-}
-if (glasses == "ReadingGlasses") {
-  drinksText(1);
-}
-if (lipstick == true) {
-  dessertText(0);
-}
-if (lipstick == false) {
-  dessertText(1);
-}
 
 //where code gets the assigned menu items from and stuff.
 //drinks items.

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orizoru: Select Menu </title>
     <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js" defer></script>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js" defer></script>
     <script src="../JS/ai.js" defer></script>
     <script src="../JS/ai2.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -14,15 +15,12 @@
 
   <body>
     
-    <container> 
-      <h1 id="title2"> AVAILABLE MENUS </h1>
-      <div class="buttons">
-        <button id="drinkBtn" onclick="document.location='Drinks.html'"> Drinks Menu </button>
-        <button id="dinBtn" onclick="document.location='Dinner.html'"> Dinner Menu </button>
-        <button id="desBtn" onclick="document.location='Dessert.html'"> Dessert Menu </button>
-      </div>
-      <button id="randomBtn" onclick="document.location='random.html'"> Personalised Menu. </button>
+    <container id="randomPage"> 
+        <h1 id="title2"> Personalised Menu. </h1>
+        <p style="font-style: italic;"> Enjoy a randomly selected menu selected for you and anyone else at your table!</p>
+        <button id="randomMenuBtn" onclick="document.location='index.html'"> Continue </button>
     </container>
+
 
   </body>
 </html>

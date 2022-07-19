@@ -98,3 +98,12 @@ p {
 #tableText {
     font-size: 6vw;
 }
+
+#randomBtn {
+    padding: 2vw;
+    font-size: 3vw;
+}
+
+#randomPage2 {
+    display: none;
+}
