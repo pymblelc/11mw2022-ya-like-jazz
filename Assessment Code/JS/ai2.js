@@ -51,6 +51,7 @@ submitBtn.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
+        
         let peopleNo = data.length;
         console.log("Number of people present is:  " + peopleNo); 
         let tabletxt = document.getElementById("textBox1");
@@ -78,6 +79,10 @@ submitBtn.addEventListener("click", function () {
           console.log("table no. is " + tableNumbers4[random]);
           txt.innerHTML += tableNumbers1[random];
         };
+
+//---------------------------------------------------------------------------------
+
+//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
 
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let glasses = data[i].faceAttributes.glasses;
@@ -144,12 +149,8 @@ submitBtn.addEventListener("click", function () {
 
 //---------------------------------------------------------------------------------------------------------------------->
 
-
-//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
-
-
 //where code gets the assigned menu items from and stuff.
-//drinks items.
+//drink items.
 drinks = [
   {
     glasses: "NoGlasses",
