@@ -12,8 +12,12 @@
     <link rel="stylesheet" href="../CSS/style.css" />
   </head>
 
+    <!-- shortens the amount of input needed from the user and starts the webcam as soon as the page loads. -->
+
   <body onload="webcamStart()">
     
+      <!-- main webcam page -->
+
     <container class="indexPage" id="indexPage" style="display: block;"> 
       <p id="para1"> Take a photo. Its on the house ;). </p>
       <div class="buttons">
@@ -24,6 +28,7 @@
       <canvas id="canvas" class="capturedImage"> </canvas>
     </container>
 
+<!-- page where the table number assigned to the group is shown  -->
 
     <container class="tablePage" id="tablePage" style="display: none;"> 
       <div>
@@ -33,16 +38,19 @@
       </div>
     </container>
 
+  <!-- where the user can select menu items -->
+
     <container id="selectPage" style="display: none;"> 
       <h1 id="title2"> AVAILABLE MENUS </h1>
       <div class="buttons">
         <button id="drinksBtn"> Drinks Menu </button>
-        <button id="dinnnerBtn"> Dinner Menu </button>
+        <button id="dinnerBtn"> Dinner Menu </button>
         <button id="dessertBtn"> Dessert Menu </button>
       </div>
       <button id="randomBtn"> Personalised Menu. </button>
     </container>
 
+  <!-- page that explains to the user what the personalised menu is. -->
 
     <container id="randomPage" style="display: none;"> 
       <h1 id="title2"> Personalised Menu. </h1>
@@ -50,6 +58,7 @@
       <button id="randomMenuBtn"> Continue </button>
     </container>
 
+      <!-- page that displays the selected personalised menu items -->
 
     <container id="randomPage2" style="display: none;"> 
       <div> 
@@ -62,6 +71,8 @@
       </div>
       <h1> We Hope You Enjoy :). </h1>
     </container>
+
+      <!--drinks menu text -->
 
     <container id="drinksMenu" style="display: none;"> 
       <div class="menu">
@@ -112,9 +123,11 @@
               Lava Cake | $6.50
               - With strawberries
           </p>
-          <button class="returnBtn"> Return </button>
+          <button id="returnBtn"> Return </button>
       </div> 
   </container>
+
+  <!--dinner menu text -->
 
   <container id="dinnerMenu" style="display: none;"> 
     <div class="menu">
@@ -165,9 +178,11 @@
             Lava Cake | $6.50
             - With strawberries
         </p>
-        <button class="returnBtn"> Return </button>
+        <button id="returnBtn"> Return </button>
     </div> 
 </container>
+
+  <!--dessert menu text -->
 
 <container id="dessertMenu" style="display: none;"> 
   <div class="menu">
@@ -218,9 +233,11 @@
           Lava Cake | $6.50
           - With strawberries
       </p>
-      <button class="returnBtn"> Return </button>
+      <button id="returnBtn"> Return </button>
   </div> 
 </container>
+
+  <!--scripting so that when certain buttons are clicked, divs are hidden or shown which gives the appearance of the page changing without having to use cloud storage. -->
 
     <script>
       document.getElementById("submit").addEventListener('click', function() {
@@ -251,10 +268,8 @@
         document.getElementById('selectPage').style.display= "none"; 
         document.getElementById('dessertMenu').style.display = "block";
       });
-      document.getElementsByClassName('returnBtn').addEventListener('click', function() {       
+      document.getElementsById('returnBtn').addEventListener('click', function() {       
         document.getElementById('selectPage').style.display= "block"; 
-        document.getElementById('dessertMenu').style.display = "none";
-        document.getElementById('dinnerMenu').style.display = "none";
         document.getElementById('drinksMenu').style.display = "none";
       })
     </script> 

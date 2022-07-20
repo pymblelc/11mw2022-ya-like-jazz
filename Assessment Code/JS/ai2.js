@@ -51,7 +51,6 @@ submitBtn.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
-        
         let peopleNo = data.length;
         console.log("Number of people present is:  " + peopleNo); 
         let tabletxt = document.getElementById("textBox1");
@@ -67,23 +66,24 @@ submitBtn.addEventListener("click", function () {
         if (peopleNo > 2) { //if no of people in photo is >2 (3,4,5,6) than one of table numbers 1,2,8,9,22,23,25,26,29 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers2.length);
           console.log("table no. is " + tableNumbers2[random]);
-          txt.innerHTML +=  tableNumbers1[random];
+          txt.innerHTML +=  tableNumbers2[random];
         }; 
         if (peopleNo > 6) { //if no. of people in photo is >6 (7,8,9,10) than one of table numbers 3,6,7,11,12,18 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers3.length);
           console.log("table no. is " + tableNumbers3[random]);
-          txt.innerHTML += tableNumbers1[random];
+          txt.innerHTML += tableNumbers3[random];
         };
         if (peopleNo > 10) { //if no. of people in photo is >10 (11,12,13 etc.) than one of table numbers 14,16,19,24,27,28 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers4.length);
           console.log("table no. is " + tableNumbers4[random]);
-          txt.innerHTML += tableNumbers1[random];
+          txt.innerHTML += tableNumbers4[random];
         };
+
 
 //---------------------------------------------------------------------------------
 
-//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
 
+//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let glasses = data[i].faceAttributes.glasses;
         let lipstick = data[i].faceAttributes.makeup.lipMakeup;

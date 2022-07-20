@@ -2,7 +2,10 @@
 
 * {
     box-sizing: border-box;
-  }
+}
+
+/* makes it so everything is centered and in cohesion aesthetically.*/
+
 
 body {
     display: grid;
@@ -35,14 +38,11 @@ button {
 
 }
 
+/* when the button is hovered over then the button changes color */
 button:hover {
     background-color: rgb(255, 243, 245);
     color: palevioletred;
     transition: 0.5s;
-}
-
-.analysation {
-    margin: 3vw;
 }
 
 h2 {
