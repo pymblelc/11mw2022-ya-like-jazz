@@ -29,6 +29,7 @@ function webcamStop () {
   .stop()
   .then((result) => {
     console.log("webcam stopped :(.")
+    myWebcam.style.display = "none";
   })
   .catch((error) => {
     console.log("error")
@@ -53,7 +54,6 @@ submitBtn.addEventListener("click", function () {
       for (let i = 0; i < data.length; i++) {
         let peopleNo = data.length;
         console.log("Number of people present is:  " + peopleNo); 
-        let tabletxt = document.getElementById("textBox1");
         const tableNumbers1 = ["4","5","10","13","15","17","21","30"];
         const tableNumbers2 = ["1","2","8","9","22","23","25","26","29"];
         const tableNumbers3 = ["3","6","7","11","12","18"];
@@ -125,9 +125,7 @@ submitBtn.addEventListener("click", function () {
         if (haircolor == "white") {
           dinnerText(5);
         }
-        if (haircolor == "gray") {
-          dinnerText(5);
-        }
+
         if (glasses == "NoGlasses") {
           drinksText(0);
         }

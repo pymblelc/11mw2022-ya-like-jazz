@@ -11,7 +11,6 @@ function startTime() {
   setTimeout(startTime, 1000);
 }
 
-//keeps it in military time
 function checkTime(i) {
   if (i < 10) {i = "0" + i};  
   return i;

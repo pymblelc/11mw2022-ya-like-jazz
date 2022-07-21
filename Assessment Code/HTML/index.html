@@ -24,7 +24,7 @@
           <button id="takePhoto"> Snap!</button>
           <button id="submit"> Enter. </button>
       </div>
-      <video id="webcam"></video>
+      <video id="webcam" class="capturedImage"></video>
       <canvas id="canvas" class="capturedImage"> </canvas>
     </container>
 
@@ -70,6 +70,7 @@
           <p id="textBox3"> </p>
       </div>
       <h1> We Hope You Enjoy :). </h1>
+      <button id="returnBtn4"> Return </button>
     </container>
 
       <!--drinks menu text -->
@@ -178,7 +179,7 @@
             Lava Cake | $6.50
             - With strawberries
         </p>
-        <button id="returnBtn"> Return </button>
+        <button id="returnBtn2"> Return </button>
     </div> 
 </container>
 
@@ -186,7 +187,7 @@
 
 <container id="dessertMenu" style="display: none;"> 
   <div class="menu">
-      <h1> DESSERT </h1>
+      <h1> DESSERT </h1>t
       <h2> Asian </h2>
 
       <p> Shibuya Honey Toast | $7.50
@@ -233,7 +234,7 @@
           Lava Cake | $6.50
           - With strawberries
       </p>
-      <button id="returnBtn"> Return </button>
+      <button id="returnBtn3"> Return </button>
   </div> 
 </container>
 
@@ -268,9 +269,27 @@
         document.getElementById('selectPage').style.display= "none"; 
         document.getElementById('dessertMenu').style.display = "block";
       });
-      document.getElementsById('returnBtn').addEventListener('click', function() {       
+      document.getElementById('returnBtn').addEventListener('click', function() {       
         document.getElementById('selectPage').style.display= "block"; 
         document.getElementById('drinksMenu').style.display = "none";
+        document.getElementById('dessertMenu').style.display = "none";
+        document.getElementById('dinnerMenu').style.display = "none";
+      })
+      document.getElementById('returnBtn2').addEventListener('click', function() {       
+        document.getElementById('selectPage').style.display= "block"; 
+        document.getElementById('drinksMenu').style.display = "none";
+        document.getElementById('dessertMenu').style.display = "none";
+        document.getElementById('dinnerMenu').style.display = "none";
+      })
+      document.getElementById('returnBtn3').addEventListener('click', function() {       
+        document.getElementById('selectPage').style.display= "block"; 
+        document.getElementById('drinksMenu').style.display = "none";
+        document.getElementById('dessertMenu').style.display = "none";
+        document.getElementById('dinnerMenu').style.display = "none";
+      })
+      document.getElementById('returnBtn4').addEventListener('click', function() {       
+        document.getElementById('selectPage').style.display= "block"; 
+        document.getElementById('randomPage2').style.display = "none";
       })
     </script> 
 
