@@ -12,6 +12,9 @@ let randomPage1 = document.getElementById("randomPage")
 let randomPage2 = document.getElementById("randomPage2")
 let menuBtn = document.getElementById("randomMenuBtn")
 
+
+
+
 //creating functions for starting and stopping the webcam
 function webcamStart() {
   webcam
@@ -41,6 +44,13 @@ takePhotoBtn.addEventListener("click", function () {
   var picture = webcam.snap(); 
   webcam.stop();
   myWebcam.style.display = "none";
+  myCanvas.toBlob(function (blob) {
+    ImageAPI.analyseFacesBlob(blob, (data) => {
+      for (let i = 0; i < data.length; i++) {
+        let peopleNo = data.length;
+      }
+    })
+  })
 });
 
 
@@ -52,13 +62,20 @@ submitBtn.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
-        let peopleNo = data.length;
+        const peopleNo = data.length;
         console.log("Number of people present is:  " + peopleNo); 
         const tableNumbers1 = ["4","5","10","13","15","17","21","30"];
         const tableNumbers2 = ["1","2","8","9","22","23","25","26","29"];
         const tableNumbers3 = ["3","6","7","11","12","18"];
         const tableNumbers4 = ["14","16","19","24","27","28"];
-        if (peopleNo < 3) { //if no. of people in photo <3 (1,2), than one of table numbers 4,5,10,13,15,17,21,30 will be randomly selected.
+        if (peopleNo == false) {
+          document.getElementById("errormsg").style.display= "block";
+          webcamStart;
+          indexPage.style.display = "block";
+          tablePage.style.display = "none";
+          console.log("retake photo")
+        }
+        if (peopleNo > 0) { //if no. of people in photo <3 (1,2), than one of table numbers 4,5,10,13,15,17,21,30 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers1.length);
           console.log("table no. is " + tableNumbers1[random]);
           txt.innerHTML = tableNumbers1[random];

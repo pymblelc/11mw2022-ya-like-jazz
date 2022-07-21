@@ -19,7 +19,8 @@
       <!-- main webcam page -->
 
     <container class="indexPage" id="indexPage" style="display: block;"> 
-      <p id="para1"> Take a photo. Its on the house ;). </p>
+      <p id="para1"> Take a photo to proceed. Make sure everyone is in it!</p>
+      <p id="errormsg" style="display: none;"> Error. No persons were read in that photo. Please retake it!</p>
       <div class="buttons">
           <button id="takePhoto"> Snap!</button>
           <button id="submit"> Enter. </button>
@@ -54,14 +55,14 @@
 
     <container id="randomPage" style="display: none;"> 
       <h1 id="title2"> Personalised Menu. </h1>
-      <p style="font-style: italic;"> Enjoy a randomly selected menu selected for you and anyone else at your table!</p>
+      <p style="font-style: italic;"> Enjoy a selected menu selected for you and anyone else at your table!</p>
       <button id="randomMenuBtn"> Continue </button>
     </container>
 
       <!-- page that displays the selected personalised menu items -->
 
     <container id="randomPage2" style="display: none;"> 
-      <div> 
+      <div class="randomMenuDesc"> 
         <div class="drinks">           
           <h1> Drinks </h1>
           <p id="textBox1"></p>
@@ -71,7 +72,7 @@
           <p id="textBox2"></p>
         </div>
         <div class="dessert"> 
-          <h2> Dessert </h2>
+          <h1> Dessert </h1>
           <p id="textBox3"> </p>
         </div>
       </div>
@@ -81,54 +82,92 @@
       <!--drinks menu text -->
 
     <container id="drinksMenu" style="display: none;"> 
-      <div class="menu">
-          <h1> DRINKS </h1>
+      <div class="randomMenuDesc">
+          <h1 id="title2"> DRINKS </h1>
+
           <h2> Asian </h2>
 
-          <p> Shibuya Honey Toast | $7.50
-              - Brick toast
-              
-              Banh Gan | $9.80
-              - Vietnamese Coconut Creme Caramel
-              
-              Mochi | $7.80
-              - Slider of 6 flavours
+          <p> Kirin Lemon | $3.50
+            - Japanese Lemonade</p> 
+            
+            
+            <p>Wang Lao Ji | $3.00
+            - Chinese Herbal Tea</p> 
+            
+            
+            <p>Craft Tea | $3.50
+            - Japanese Peach Tea</p> 
+            
+            
+            <p>Oi Ocha | $4.20
+            - Japanese Green Tea</p> 
+            
+            
+            <p>Melon Fanta Soda | $4.50
+            - Melon Fanta Soft Drink
+            
           </p>
-          
-          
+
+          <br>
+                  
           <h2> European </h2>
           
-          <p>Bombe Alaska | $12.00
-              - Ice Cream inside Meringue
-              
-              Trifle - Non Alcoholic | $7.00
-              - With Mini Eclairs
-              
-              Italian Tiramisu | $6.00
-              - With Ice-Cream and Strawberries
+          <p>Irn Bru | $4.25
+            - Scottish Orange Soft Drink</p> 
+            
+            
+            <p>Kracherl | $4.50
+            - Austrian Lemonade</p> 
+            
+            
+            <p>Vadelma Limonadi | $5.00
+            - Finnish Raspberry Soft Drink</p> 
+            
+            
+           <p> Bionade | $4.50
+            - German Soft Drink</p> 
+            
+            
+            <p>Ricqlès  | $5.00
+            - French Mint Flavoured Soft Drink
+            
           </p>
           
+          <br>
           
-          <h2> Eurasian</h2>
+          <h2> Cold </h2>
           
-          <p> Mango Pudding | $7.60
-              - Your Choice of Topping
-              
-              Black sesame Ice-Cream Cones | $3.80
-              - With Matcha or Green Tea Ice-Cream
-          </p>          
+          <p> Milkshakes | $4.25
+            -Your choice of Ice-cream.</p> 
+            
+            <p>Smoothies | $4.50
+            - Berry, Tropical, Citrus, Green.</p> 
+            
+            <p>Bubble Tea | $5.00
+            - Berry, Milk, Tropical; Apple Pearls, Strawberry Pearls.</p> 
+            
+            <p>Juice | $4.50
+            - Orange, Apple, Mango, Passionfruit.
+          </p>    
+          
+          <br>
           
 
-          <h2> Classic </h2>
+          <h2> Hot </h2>
           
-          <p> Ice Cream | $3.50
-              - Your Choice of Flavour
-              
-              Cheesecake of the Day | $TBD
-              
-              Lava Cake | $6.50
-              - With strawberries
+          <p>Coffee | $4.50
+          - Espresso, Macchiato, Latte, Americano, Cappuccino.</p> 
+          
+          <p>Hot Chocolate | $3.50
+          - Caramel, Chocolate</p> 
+          
+          <p>Tea | $3.50
+          - Green, Black, English Breakfast, Mocha</p> 
+          
+         <p> Gluhwein | $8.00
+          - German Mulled Wine
           </p>
+
           <button id="returnBtn"> Return </button>
       </div> 
   </container>
@@ -136,54 +175,54 @@
   <!--dinner menu text -->
 
   <container id="dinnerMenu" style="display: none;"> 
-    <div class="menu">
-        <h1> DINNER </h1>
+    <div class="randomMenuDesc">
+        <h1 id="title2"> DINNER </h1>
         <h2> Asian </h2>
 
-        <p> Shibuya Honey Toast | $7.50
-            - Brick toast
-            
-            Banh Gan | $9.80
-            - Vietnamese Coconut Creme Caramel
-            
-            Mochi | $7.80
-            - Slider of 6 flavours
+        <p> Clean Vegan Pad Thai | $9.00 (V/VG)</p> 
+
+         <p> Ginger Peanut Hoison Noodles | $12.00 (V/VG)
+          - With rice.</p> 
+          
+         <p> Cooked Sea Bass - 1/2 | $23.00
+          - With Sizzled Ginger, Chilli and Spring Onions.</p> 
+          
+         <p> Asian Prawns | $11.80
+          - With Asian Puy Lentils
         </p>
         
+        <br>
         
         <h2> European </h2>
         
-        <p>Bombe Alaska | $12.00
-            - Ice Cream inside Meringue
-            
-            Trifle - Non Alcoholic | $7.00
-            - With Mini Eclairs
-            
-            Italian Tiramisu | $6.00
-            - With Ice-Cream and Strawberries
+        <p>Italian Baked Sea Bass | $15.00</p> 
+
+         <p> Pancetta Wrapped Fish | $18.00
+          - With Lemony Potato Salad</p> 
+          
+         <p> Potato Frittata | $19.50
+          - With Pesto and Goat's Cheese</p> 
+          
+         <p> Mediterranean Pasta | $17.25 (V/VG)
+          - With Basil and Potato Salad
         </p>
         
+        <br>
         
         <h2> Eurasian</h2>
         
-        <p> Mango Pudding | $7.60
-            - Your Choice of Topping
-            
-            Black sesame Ice-Cream Cones | $3.80
-            - With Matcha or Green Tea Ice-Cream
+        <p> Creamy Chicken and Mango Curry | $13.00</p> 
+
+         <p> Thai Mackerel and Sweet Potato | $18.70
+          - Available as Tray Bake</p> 
+          
+         <p> Miso Chilli Steak | $30.00
+          - With Crispy Sweet Potatoes</p> 
+          
+         <p> Seasonal Option | $TBD
+          - Check Specials Menu or ask our waiters.
         </p>          
         
-
-        <h2> Classic </h2>
-        
-        <p> Ice Cream | $3.50
-            - Your Choice of Flavour
-            
-            Cheesecake of the Day | $TBD
-            
-            Lava Cake | $6.50
-            - With strawberries
-        </p>
         <button id="returnBtn2"> Return </button>
     </div> 
 </container>
@@ -191,52 +230,57 @@
   <!--dessert menu text -->
 
 <container id="dessertMenu" style="display: none;"> 
-  <div class="menu">
-      <h1> DESSERT </h1>t
+  <div class="randomMenuDesc">
+      <h1 id="title2"> DESSERT </h1>
       <h2> Asian </h2>
 
       <p> Shibuya Honey Toast | $7.50
-          - Brick toast
+          - Brick toast </p> 
           
-          Banh Gan | $9.80
-          - Vietnamese Coconut Creme Caramel
+          <p>Banh Gan | $9.80
+          - Vietnamese Coconut Creme Caramel</p> 
           
-          Mochi | $7.80
+         <p> Mochi | $7.80
           - Slider of 6 flavours
       </p>
       
+      <br>
       
       <h2> European </h2>
       
       <p>Bombe Alaska | $12.00
-          - Ice Cream inside Meringue
+          - Ice Cream inside Meringue </p>
           
-          Trifle - Non Alcoholic | $7.00
-          - With Mini Eclairs
+         <p>Trifle - Non Alcoholic | $7.00
+          - With Mini Eclairs</p> 
           
-          Italian Tiramisu | $6.00
+       <p>   Italian Tiramisu | $6.00
           - With Ice-Cream and Strawberries
       </p>
       
-      
+      <br>
+
       <h2> Eurasian</h2>
       
       <p> Mango Pudding | $7.60
-          - Your Choice of Topping
+          - Your Choice of Topping 
+      </p>
           
-          Black sesame Ice-Cream Cones | $3.80
+      <p>Black sesame Ice-Cream Cones | $3.80
           - With Matcha or Green Tea Ice-Cream
       </p>          
       
+      <br>
 
       <h2> Classic </h2>
       
       <p> Ice Cream | $3.50
-          - Your Choice of Flavour
+          - Your Choice of Flavour 
+      </p>
           
-          Cheesecake of the Day | $TBD
+      <p>Cheesecake of the Day | $TBD </p>
           
-          Lava Cake | $6.50
+      <p> Lava Cake | $6.50
           - With strawberries
       </p>
       <button id="returnBtn3"> Return </button>

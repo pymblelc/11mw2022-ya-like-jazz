@@ -71,6 +71,8 @@ h2 {
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-weight: lighter;
+    box-shadow: 10px 10px 5px palevioletred;
+    background-color: rgb(255, 243, 245, 0.3);
 }
 
 p {
@@ -100,3 +102,14 @@ p {
     font-size: 3vw;
 }
 
+.randomMenuDesc {
+    justify-content: center;
+    margin: 5vw;
+}
+
+#errormsg {
+    color: red;
+    font-size: large;
+    border: white;
+    background-color: white;
+}
