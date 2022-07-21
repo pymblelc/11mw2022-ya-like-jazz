@@ -5,14 +5,12 @@ let myCanvas = document.getElementById("canvas");
 let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
 let webcam = new Webcam(myWebcam, "user", myCanvas); 
-let txt = document.getElementById("tableText")
-let indexPage = document.getElementById("indexPage")
-let tablePage = document.getElementById("tablePage")
-let randomPage1 = document.getElementById("randomPage")
-let randomPage2 = document.getElementById("randomPage2")
-let menuBtn = document.getElementById("randomMenuBtn")
-
-
+let txt = document.getElementById("tableText");
+let indexPage = document.getElementById("indexPage");
+let tablePage = document.getElementById("tablePage");
+let randomPage1 = document.getElementById("randomPage");
+let randomPage2 = document.getElementById("randomPage2");
+let menuBtn = document.getElementById("randomMenuBtn");
 
 
 //creating functions for starting and stopping the webcam
@@ -44,15 +42,7 @@ takePhotoBtn.addEventListener("click", function () {
   var picture = webcam.snap(); 
   webcam.stop();
   myWebcam.style.display = "none";
-  myCanvas.toBlob(function (blob) {
-    ImageAPI.analyseFacesBlob(blob, (data) => {
-      for (let i = 0; i < data.length; i++) {
-        let peopleNo = data.length;
-      }
-    })
-  })
 });
-
 
 //<--------------------------------------------------------------------------------------------------------------------> 
 
@@ -101,24 +91,39 @@ submitBtn.addEventListener("click", function () {
 
 
 //using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
+        //gets the facial attributes and stores them in variables for later use.
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let glasses = data[i].faceAttributes.glasses;
         let lipstick = data[i].faceAttributes.makeup.lipMakeup;
 
         function drinksText (number) {
+          //calls the array text based on the number given.
           let drinksText = drinks[number].text; 
-          let drinksImg = drinks[number].image;
-          textBox1.innerHTML += drinksText;
+          //puts all the responses on different lines for formatting purposes.
+          let span1 = document.createElement("span");
+          let txt1 = document.getElementById("textBox1").appendChild(span1);
+          let br1 = document.createElement('br')
+          let breaktxt1 = document.getElementById("textBox1").appendChild(br1).style.display="";
+          txt1.style.display = "inline";
+          txt1.innerHTML += drinksText + breaktxt1;
         } 
         function dinnerText (number) {
           let dinnerText = dinner[number].text; 
-          let dinnerImg = dinner[number].image;
-          textBox2.innerHTML += dinnerText;
+          let span2 = document.createElement("span");
+          let txt2 = document.getElementById("textBox2").appendChild(span2);
+          let br2 = document.createElement('br')
+          let breaktxt2 = document.getElementById("textBox2").appendChild(br2).style.display="";
+          txt2.style.display = "inline";
+          txt2.innerHTML += dinnerText + breaktxt2;
         }
         function dessertText (number) {
           let dessertText = dessert[number].text; 
-          let dessertImg = dessert[number].image;
-          textBox3.innerHTML += dessertText;
+          let span3 = document.createElement("span");
+          let txt3 = document.getElementById("textBox3").appendChild(span3);
+          let br3 = document.createElement('br')
+          let breaktxt3 = document.getElementById("textBox3").appendChild(br3).style.display="";
+          txt3.style.display = "inline";
+          txt3.innerHTML += dessertText + breaktxt3;
         }
 
         if (haircolor == "black") {
@@ -142,7 +147,6 @@ submitBtn.addEventListener("click", function () {
         if (haircolor == "white") {
           dinnerText(5);
         }
-
         if (glasses == "NoGlasses") {
           drinksText(0);
         }
