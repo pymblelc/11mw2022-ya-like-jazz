@@ -152,11 +152,11 @@ submitBtn.addEventListener("click", function () {
 drinks = [
   {
     glasses: "NoGlasses",
-    text: "The Drink is Ricqlès, a French Mint Flavoured Soft Drink. ",
+    text: "Clear Sky: A Sprite and Blueberry Concoction infused with Vanilla. ",
   },
   {
     glasses: "ReadingGlasses",
-    text: "The Drink is Vadelma Limonadi, a Finnish Raspberry Soft Drink. ",
+    text: "Four Eyed Spider: Vanilla Ice Cream topped with Sprite, Raspberry Flavouring and a splash of Lemon. ",
   },
 ];
 
@@ -164,27 +164,27 @@ drinks = [
 dinner = [
   {
     hair: "black",
-    text: "The dinner course is 1/2 a Cooked Sea Bass, served with Sizzled Ginger, Chilli and Spring Onions.",
+    text: "Black Bun Burger: Wagyu Beef, Tomato, Lettuce, Cheese and our secret Barbeque Sauce topped with a Black Seed Bun. ",
   },
   {
     hair: "blond",
-    text: "The dinner course is Mediterranean Pasta with a delicious addition of Basil and Potato Salad.",
+    text: "Yellow Curry: Thai Yellow Chicken Curry served on a bed of Steamed White Rice. ",
   },
   {
     hair: "brown",
-    text: "The dinner course is Creamy Chicken and Mango Curry, served with fresh steamed rice and vegetables. ",
+    text: "Brown Sugar Garlic Chicken: Chicken Thigh cooked in a garlic soy broth, served with Potato Salad. ",
   },
   {
     hair: "red",
-    text: "The dinner course is Miso Chilli Steak, served with Crispy Sweet Potatoes and Broccolini. ",
+    text: "Crimson Carp: Cripsy Fried Carp cooked with Schichuan Pepper and Tomato. ",
   },
   {
     hair: "unknown&other",
-    text:  "The dinner course is Thai Mackerel and Sweet Potato served on top of a Bed of Rice. ",
+    text:  "Mystery Meal: A Secret and Spectacular Special prepared by our chefs that changes daily. ",
   },
   {
     hair: "white&gray",
-    text: "The dinner course is Pancetta Wrapped Fish, with Lemony Potato Salad on the side.",
+    text: "White Angel Soba: White miso soup served with Rice, Tofu, Edamame and Ginger. ",
   },
 ];
 
@@ -192,10 +192,10 @@ dinner = [
 dessert = [
   {
     lipstick: "true",
-    text: "Dessert is Italian Tiramisu With Ice-Cream and Strawberries. ",
+    text: "Red Desire: Red Velvet Lava Cake filled with Raspberry Ganache and Chocolate. ",
   },
   {
     lipstick: "false",
-    text: "Bombe Alaska - Ice Cream inside Meringue. ",
+    text: "Secret Kiss: Vanilla Meringues served with Chocolate Coated Strawberries. ",
   },
 ];
