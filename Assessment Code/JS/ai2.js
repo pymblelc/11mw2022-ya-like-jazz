@@ -4,7 +4,7 @@ let myWebcam = document.getElementById("webcam");
 let myCanvas = document.getElementById("canvas");
 let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
-let webcam = new Webcam(myWebcam, "user", myCanvas); 
+let webcam = new Webcam(myWebcam, "user", myCanvas);
 let txt = document.getElementById("tableText");
 let indexPage = document.getElementById("indexPage");
 let tablePage = document.getElementById("tablePage");
@@ -16,30 +16,30 @@ let menuBtn = document.getElementById("randomMenuBtn");
 //creating functions for starting and stopping the webcam
 function webcamStart() {
   webcam
-  .start()
-  .then((result) => {
-    console.log("webcam started!");
-  })
-  .catch((error) => {
-    console.log("error");
-  });
+    .start()
+    .then((result) => {
+      console.log("webcam started!");
+    })
+    .catch((error) => {
+      console.log("error");
+    });
 }
 
-function webcamStop () {
+function webcamStop() {
   webcam
-  .stop()
-  .then((result) => {
-    console.log("webcam stopped :(.")
-    myWebcam.style.display = "none";
-  })
-  .catch((error) => {
-    console.log("error")
-  });
+    .stop()
+    .then((result) => {
+      console.log("webcam stopped :(.")
+      myWebcam.style.display = "none";
+    })
+    .catch((error) => {
+      console.log("error")
+    });
 }
 
 // getting the webcam to snap a cute shot. Smile for the camera :)
 takePhotoBtn.addEventListener("click", function () {
-  var picture = webcam.snap(); 
+  var picture = webcam.snap();
   webcam.stop();
   myWebcam.style.display = "none";
 });
@@ -53,18 +53,11 @@ submitBtn.addEventListener("click", function () {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
         const peopleNo = data.length;
-        console.log("Number of people present is:  " + peopleNo); 
-        const tableNumbers1 = ["4","5","10","13","15","17","21","30"];
-        const tableNumbers2 = ["1","2","8","9","22","23","25","26","29"];
-        const tableNumbers3 = ["3","6","7","11","12","18"];
-        const tableNumbers4 = ["14","16","19","24","27","28"];
-        if (peopleNo == false) {
-          document.getElementById("errormsg").style.display= "block";
-          webcamStart;
-          indexPage.style.display = "block";
-          tablePage.style.display = "none";
-          console.log("retake photo")
-        }
+        console.log("Number of people present is:  " + peopleNo);
+        const tableNumbers1 = ["4", "5", "10", "13", "15", "17", "21", "30"];
+        const tableNumbers2 = ["1", "2", "8", "9", "22", "23", "25", "26", "29"];
+        const tableNumbers3 = ["3", "6", "7", "11", "12", "18"];
+        const tableNumbers4 = ["14", "16", "19", "24", "27", "28"];
         if (peopleNo > 0) { //if no. of people in photo <3 (1,2), than one of table numbers 4,5,10,13,15,17,21,30 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers1.length);
           console.log("table no. is " + tableNumbers1[random]);
@@ -73,8 +66,8 @@ submitBtn.addEventListener("click", function () {
         if (peopleNo > 2) { //if no of people in photo is >2 (3,4,5,6) than one of table numbers 1,2,8,9,22,23,25,26,29 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers2.length);
           console.log("table no. is " + tableNumbers2[random]);
-          txt.innerHTML +=  tableNumbers2[random];
-        }; 
+          txt.innerHTML += tableNumbers2[random];
+        };
         if (peopleNo > 6) { //if no. of people in photo is >6 (7,8,9,10) than one of table numbers 3,6,7,11,12,18 will be randomly selected.
           const random = Math.floor(Math.random() * tableNumbers3.length);
           console.log("table no. is " + tableNumbers3[random]);
@@ -87,41 +80,41 @@ submitBtn.addEventListener("click", function () {
         };
 
 
-//---------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------
 
 
-//using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
+        //using face analysis to create a random menu order for each of them using faceAttributes such as hair, glasses and lipstick for drinks, dinner and dessert respectively.
         //gets the facial attributes and stores them in variables for later use.
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let glasses = data[i].faceAttributes.glasses;
         let lipstick = data[i].faceAttributes.makeup.lipMakeup;
 
-        function drinksText (number) {
+        function drinksText(number) {
           //calls the array text based on the number given.
-          let drinksText = drinks[number].text; 
+          let drinksText = drinks[number].text;
           //puts all the responses on different lines for formatting purposes.
           let span1 = document.createElement("span");
           let txt1 = document.getElementById("textBox1").appendChild(span1);
           let br1 = document.createElement('br')
-          let breaktxt1 = document.getElementById("textBox1").appendChild(br1).style.display="";
+          let breaktxt1 = document.getElementById("textBox1").appendChild(br1).style.display = "";
           txt1.style.display = "inline";
           txt1.innerHTML += drinksText + breaktxt1;
-        } 
-        function dinnerText (number) {
-          let dinnerText = dinner[number].text; 
+        }
+        function dinnerText(number) {
+          let dinnerText = dinner[number].text;
           let span2 = document.createElement("span");
           let txt2 = document.getElementById("textBox2").appendChild(span2);
           let br2 = document.createElement('br')
-          let breaktxt2 = document.getElementById("textBox2").appendChild(br2).style.display="";
+          let breaktxt2 = document.getElementById("textBox2").appendChild(br2).style.display = "";
           txt2.style.display = "inline";
           txt2.innerHTML += dinnerText + breaktxt2;
         }
-        function dessertText (number) {
-          let dessertText = dessert[number].text; 
+        function dessertText(number) {
+          let dessertText = dessert[number].text;
           let span3 = document.createElement("span");
           let txt3 = document.getElementById("textBox3").appendChild(span3);
           let br3 = document.createElement('br')
-          let breaktxt3 = document.getElementById("textBox3").appendChild(br3).style.display="";
+          let breaktxt3 = document.getElementById("textBox3").appendChild(br3).style.display = "";
           txt3.style.display = "inline";
           txt3.innerHTML += dessertText + breaktxt3;
         }
@@ -201,7 +194,7 @@ dinner = [
   },
   {
     hair: "unknown&other",
-    text:  "Mystery Meal: A Secret and Spectacular Special prepared by our chefs that changes daily. ",
+    text: "Mystery Meal: A Secret and Spectacular Special prepared by our chefs that changes daily. ",
   },
   {
     hair: "white&gray",
