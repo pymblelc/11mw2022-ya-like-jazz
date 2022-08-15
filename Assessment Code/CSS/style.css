@@ -1,0 +1,115 @@
+@import "https://unpkg.com/open-props";
+
+* {
+    box-sizing: border-box;
+}
+
+/* makes it so everything is centered and in cohesion aesthetically.*/
+
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: "Libre Baskerville", serif;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+    background: var(--gradient-1);
+}
+
+#myPhoto {
+    justify-content: center;
+}
+
+button {
+    margin: 2vw;
+    padding: 1vw;
+    width: 10%;
+    background-color: transparent;
+    border: solid;
+    min-width: fit-content;
+    font: 2vw "Libre Baskerville", serif;
+    color: white;
+
+}
+
+/* when the button is hovered over then the button changes color */
+button:hover {
+    background-color: rgb(255, 243, 245);
+    color: palevioletred;
+    transition: 0.5s;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+.capturedImage {
+    width: 640px;
+    height: 480px;
+}
+
+#title {
+    font-size: 6vw;
+    margin-top: 200px;
+    color: white;
+}
+
+#title2 {
+    font-size: 6vw;
+    color: white;
+}
+
+#clock {
+    font-size: 6vw;
+    margin-top: 50px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    box-shadow: 10px 10px 5px palevioletred;
+    background-color: rgb(255, 243, 245, 0.3);
+}
+
+p {
+    font-size: 2vw;
+}
+
+.container {
+    display: grid;
+    margin: 2vw;
+    width: 50%;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+#webcam {
+    width: 100%;
+
+}
+
+#tableText {
+    font-size: 6vw;
+}
+
+#randomBtn {
+    padding: 2vw;
+    font-size: 3vw;
+}
+
+.randomMenuDesc {
+    justify-content: center;
+    margin: 5vw;
+}
+
+#errormsg {
+    color: red;
+    font-size: large;
+    border: white;
+    background-color: white;
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orizoru: Photo Op</title>
+  <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js" defer></script>
+  <script src="../JS/ai.js" defer></script>
+  <script src="../JS/ai2.js" defer></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="../CSS/style.css" />
+</head>
+
+<!-- shortens the amount of input needed from the user and starts the webcam as soon as the page loads. -->
+
+<body onload="webcamStart()">
+
+  <!-- main webcam page -->
+
+  <container class="indexPage" id="indexPage" style="display: block;">
+    <p id="para1"> Take a photo to proceed. Make sure everyone is in it!</p>
+    <p id="errormsg" style="display: none;"> Error. No persons were read in that photo. Please retake it!</p>
+    <div class="buttons">
+      <button id="takePhoto"> Snap!</button>
+      <button id="submit"> Enter. </button>
+    </div>
+    <video id="webcam" class="capturedImage"></video>
+    <canvas id="canvas" class="capturedImage"> </canvas>
+  </container>
+
+  <!-- page where the table number assigned to the group is shown  -->
+
+  <container class="tablePage" id="tablePage" style="display: none;">
+    <div>
+      <h1 id="title2"> Your Table No. is: </h1>
+      <h1 id="tableText"> </h1>
+      <p> Please click continue to proceed to menu selection. </p>
+      <button id="contBtn"> Continue </button>
+    </div>
+  </container>
+
+  <!-- where the user can select menu items -->
+
+  <container id="selectPage" style="display: none;">
+    <h1 id="title2"> AVAILABLE MENUS </h1>
+    <div class="buttons">
+      <button id="drinksBtn"> Drinks Menu </button>
+      <button id="dinnerBtn"> Dinner Menu </button>
+      <button id="dessertBtn"> Dessert Menu </button>
+    </div>
+    <button id="randomBtn"> Personalised Menu. </button>
+  </container>
+
+  <!-- page that explains to the user what the personalised menu is. -->
+
+  <container id="randomPage" style="display: none;">
+    <h1 id="title2"> Personalised Menu. </h1>
+    <p style="font-style: italic;"> Enjoy a selected menu selected for you and anyone else at your table!</p>
+    <button id="randomMenuBtn"> Continue </button>
+  </container>
+
+  <!-- page that displays the selected personalised menu items -->
+
+  <container id="randomPage2" style="display: none;">
+    <div class="randomMenuDesc">
+      <div class="drinks">
+        <h1> Drinks </h1>
+        <p class="textBox" id="textBox1"></p>
+      </div>
+      <div class="dinner">
+        <h1> Dinner </h1>
+        <p class="textBox" id="textBox2"></p>
+      </div>
+      <div class="dessert">
+        <h1> Dessert </h1>
+        <p class="textBox" id="textBox3"> </p>
+      </div>
+    </div>
+    <button id="returnBtn4"> Return </button>
+  </container>
+
+  <!--drinks menu text -->
+
+  <container id="drinksMenu" style="display: none;">
+    <div class="randomMenuDesc">
+      <h1 id="title2"> DRINKS </h1>
+
+      <h2> Asian </h2>
+
+      <p> Kirin Lemon | $3.50
+        - Japanese Lemonade</p>
+
+
+      <p>Wang Lao Ji | $3.00
+        - Chinese Herbal Tea</p>
+
+
+      <p>Craft Tea | $3.50
+        - Japanese Peach Tea</p>
+
+
+      <p>Oi Ocha | $4.20
+        - Japanese Green Tea</p>
+
+
+      <p>Melon Fanta Soda | $4.50
+        - Melon Fanta Soft Drink
+
+      </p>
+
+      <br>
+
+      <h2> European </h2>
+
+      <p>Irn Bru | $4.25
+        - Scottish Orange Soft Drink</p>
+
+
+      <p>Kracherl | $4.50
+        - Austrian Lemonade</p>
+
+
+      <p>Vadelma Limonadi | $5.00
+        - Finnish Raspberry Soft Drink</p>
+
+
+      <p> Bionade | $4.50
+        - German Soft Drink</p>
+
+
+      <p>Ricqlès | $5.00
+        - French Mint Flavoured Soft Drink
+
+      </p>
+
+      <br>
+
+      <h2> Cold </h2>
+
+      <p> Milkshakes | $4.25
+        -Your choice of Ice-cream.</p>
+
+      <p>Smoothies | $4.50
+        - Berry, Tropical, Citrus, Green.</p>
+
+      <p>Bubble Tea | $5.00
+        - Berry, Milk, Tropical; Apple Pearls, Strawberry Pearls.</p>
+
+      <p>Juice | $4.50
+        - Orange, Apple, Mango, Passionfruit.
+      </p>
+
+      <br>
+
+
+      <h2> Hot </h2>
+
+      <p>Coffee | $4.50
+        - Espresso, Macchiato, Latte, Americano, Cappuccino.</p>
+
+      <p>Hot Chocolate | $3.50
+        - Caramel, Chocolate</p>
+
+      <p>Tea | $3.50
+        - Green, Black, English Breakfast, Mocha</p>
+
+      <p> Gluhwein | $8.00
+        - German Mulled Wine
+      </p>
+
+      <button id="returnBtn"> Return </button>
+    </div>
+  </container>
+
+  <!--dinner menu text -->
+
+  <container id="dinnerMenu" style="display: none;">
+    <div class="randomMenuDesc">
+      <h1 id="title2"> DINNER </h1>
+      <h2> Asian </h2>
+
+      <p> Clean Vegan Pad Thai | $9.00 (V/VG)</p>
+
+      <p> Ginger Peanut Hoison Noodles | $12.00 (V/VG)
+        - With rice.</p>
+
+      <p> Cooked Sea Bass - 1/2 | $23.00
+        - With Sizzled Ginger, Chilli and Spring Onions.</p>
+
+      <p> Asian Prawns | $11.80
+        - With Asian Puy Lentils
+      </p>
+
+      <br>
+
+      <h2> European </h2>
+
+      <p>Italian Baked Sea Bass | $15.00</p>
+
+      <p> Pancetta Wrapped Fish | $18.00
+        - With Lemony Potato Salad</p>
+
+      <p> Potato Frittata | $19.50
+        - With Pesto and Goat's Cheese</p>
+
+      <p> Mediterranean Pasta | $17.25 (V/VG)
+        - With Basil and Potato Salad
+      </p>
+
+      <br>
+
+      <h2> Eurasian</h2>
+
+      <p> Creamy Chicken and Mango Curry | $13.00</p>
+
+      <p> Thai Mackerel and Sweet Potato | $18.70
+        - Available as Tray Bake</p>
+
+      <p> Miso Chilli Steak | $30.00
+        - With Crispy Sweet Potatoes</p>
+
+      <p> Seasonal Option | $TBD
+        - Check Specials Menu or ask our waiters.
+      </p>
+
+      <button id="returnBtn2"> Return </button>
+    </div>
+  </container>
+
+  <!--dessert menu text -->
+
+  <container id="dessertMenu" style="display: none;">
+    <div class="randomMenuDesc">
+      <h1 id="title2"> DESSERT </h1>
+      <h2> Asian </h2>
+
+      <p> Shibuya Honey Toast | $7.50
+        - Brick toast </p>
+
+      <p>Banh Gan | $9.80
+        - Vietnamese Coconut Creme Caramel</p>
+
+      <p> Mochi | $7.80
+        - Slider of 6 flavours
+      </p>
+
+      <br>
+
+      <h2> European </h2>
+
+      <p>Bombe Alaska | $12.00
+        - Ice Cream inside Meringue </p>
+
+      <p>Trifle - Non Alcoholic | $7.00
+        - With Mini Eclairs</p>
+
+      <p> Italian Tiramisu | $6.00
+        - With Ice-Cream and Strawberries
+      </p>
+
+      <br>
+
+      <h2> Eurasian</h2>
+
+      <p> Mango Pudding | $7.60
+        - Your Choice of Topping
+      </p>
+
+      <p>Black sesame Ice-Cream Cones | $3.80
+        - With Matcha or Green Tea Ice-Cream
+      </p>
+
+      <br>
+
+      <h2> Classic </h2>
+
+      <p> Ice Cream | $3.50
+        - Your Choice of Flavour
+      </p>
+
+      <p>Cheesecake of the Day | $TBD </p>
+
+      <p> Lava Cake | $6.50
+        - With strawberries
+      </p>
+      <button id="returnBtn3"> Return </button>
+    </div>
+  </container>
+
+  <!--scripting so that when certain buttons are clicked, divs are hidden or shown which gives the appearance of the page changing without having to use cloud storage. -->
+
+  <script>
+    document.getElementById("submit").addEventListener('click', function () {
+      document.getElementById('indexPage').style.display = "none";
+      document.getElementById('tablePage').style.display = "block";
+    });
+    document.getElementById("contBtn").addEventListener('click', function () {
+      document.getElementById('tablePage').style.display = "none";
+      document.getElementById('selectPage').style.display = "block";
+    });
+    document.getElementById("randomBtn").addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "none";
+      document.getElementById('randomPage').style.display = "block";
+    });
+    document.getElementById("randomMenuBtn").addEventListener('click', function () {
+      document.getElementById('randomPage').style.display = "none";
+      document.getElementById('randomPage2').style.display = "block";
+    });
+    document.getElementById('drinksBtn').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "none";
+      document.getElementById('drinksMenu').style.display = "block";
+    });
+    document.getElementById('dinnerBtn').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "none";
+      document.getElementById('dinnerMenu').style.display = "block";
+    });
+    document.getElementById('dessertBtn').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "none";
+      document.getElementById('dessertMenu').style.display = "block";
+    });
+    document.getElementById('returnBtn').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "block";
+      document.getElementById('drinksMenu').style.display = "none";
+      document.getElementById('dessertMenu').style.display = "none";
+      document.getElementById('dinnerMenu').style.display = "none";
+    })
+    document.getElementById('returnBtn2').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "block";
+      document.getElementById('drinksMenu').style.display = "none";
+      document.getElementById('dessertMenu').style.display = "none";
+      document.getElementById('dinnerMenu').style.display = "none";
+    })
+    document.getElementById('returnBtn3').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "block";
+      document.getElementById('drinksMenu').style.display = "none";
+      document.getElementById('dessertMenu').style.display = "none";
+      document.getElementById('dinnerMenu').style.display = "none";
+    })
+    document.getElementById('returnBtn4').addEventListener('click', function () {
+      document.getElementById('selectPage').style.display = "block";
+      document.getElementById('randomPage2').style.display = "none";
+    })
+  </script>
+
+
+</body>
+
+</html>
